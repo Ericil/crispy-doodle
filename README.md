@@ -1,3 +1,3 @@
 # crispy-doodle
 
-data:http://www.electproject.org/home/voter-turnout/voter-turnout-data
+data:http://www.factcheck.org/2016/03/trump-touts-gop-turnout/
