@@ -95,16 +95,16 @@ var svg = d3.select("#linechart"),
 	right: 20,
 	bottom: 20,
 	left: 50
-    },
-    
-    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([1980, 2012]),
-    
-    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, 35]),
-    
-    xAxis = d3.svg.axis()
-    .scale(xScale),
-    
-    yAxis = d3.svg.axis()
+    }
+
+xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([1980, 2012]);
+
+yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, 35]);
+
+xAxis = d3.svg.axis()
+    .scale(xScale);
+
+yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left");
 
@@ -119,6 +119,7 @@ svg.append("svg:g")
     .attr("transform", "translate(" + (MARGINS.left) + ",0)")
     .call(yAxis);
 
+
 var line = d3.svg.line()
     .x(function(d) {
 	return xScale(d.year);
@@ -127,21 +128,21 @@ var line = d3.svg.line()
 	return yScale(d.turnout);
     })
 
-svg.append('svg:path')
-    .attr('d', line(dem))
-    .attr('stroke', 'blue')
-    .attr('stroke-width', 2)
-    .attr('fill', 'none');
+svg.append("svg:path")
+    .attr("d", line(dem))
+    .attr("stroke", "blue")
+    .attr("stroke-width", 2)
+    .attr("fill", "none");
 
-svg.append('svg:path')
-    .attr('d', line(rep))
-    .attr('stroke', 'red')
-    .attr('stroke-width', 2)
-    .attr('fill', 'none');
+svg.append("svg:path")
+    .attr("d", line(rep))
+    .attr("stroke", "red")
+    .attr("stroke-width", 2)
+    .attr("fill", "none");
 
-svg.append('svg:path')
-    .attr('d', line(total))
-    .attr('stroke', 'gold')
-    .attr('stroke-width', 2)
-    .attr('fill', 'none');
+svg.append("svg:path")
+    .attr("d", line(total))
+    .attr("stroke", "gold")
+    .attr("stroke-width", 2)
+    .attr("fill", "none");
 
