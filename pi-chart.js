@@ -129,6 +129,7 @@ function start(){
     
     // draw and append the container
     svg = d3.select("body").append("svg")
+	.attr("id", "pi-chart")
 	.attr("width", width)
 	.attr("height", height);
     
@@ -157,7 +158,7 @@ render("d");
 function render(party){
 
     if (current == "d" && party == "r"){
-	d3.select("svg").remove();
+	d3.select("#pi-chart").remove();
 	start();
 	console.log('1');
 	color = d3.scale.category20b().domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
@@ -178,7 +179,7 @@ function render(party){
 	current = "r";
 	
     }else if (current == "r" && party == "d"){
-	d3.select("svg").remove();
+	d3.select("#pi-chart").remove();
 	start();
 	console.log('2');
 	color = d3.scale.category20c().domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
