@@ -40,36 +40,81 @@ document.body.appendChild(form_r);
 
 
 
-var odisplay = document.createElement('p');
-var otext = document.createTextNode("Bernie: " + d["alaska"][0] + " Hillary: " + d["alaska"][1]);
-odisplay.appendChild(otext);
-document.body.appendChild(odisplay);
+var odisplay_1 = document.createElement('p');
+odisplay_1.setAttribute('style', 'background-color:#3182bd;text-align: center ');
+var otext_1 = document.createTextNode("Bernie: " + d["alaska"][0]);
+odisplay_1.appendChild(otext_1);
+document.body.appendChild(odisplay_1);
+var odisplay_2 = document.createElement('p');
+odisplay_2.setAttribute('style', 'background-color:#6baed6;text-align: center ');
+var otext_2 = document.createTextNode("Clinton: " + d["alaska"][1]);
+odisplay_2.appendChild(otext_2);
+document.body.appendChild(odisplay_2);
+var odisplay_3 = document.createElement('p');
+odisplay_3.setAttribute('style', 'background-color:#6baed6;text-align: center ');
+var otext_3 = document.createTextNode("");
+odisplay_3.appendChild(otext_3);
+document.body.appendChild(odisplay_3);
 
-var hold = odisplay;
+
+var hold_1 = odisplay_1;
+var hold_2 = odisplay_2;
+var hold_3 = odisplay_3;
+
 inputDrop_d.addEventListener('change', function(){
     
-    var display = document.createElement('p');
-    var text = document.createTextNode("Bernie: " + d[inputDrop_d.value][0]  + " Hillary: " + d[inputDrop_d.value][1]);
-    display.appendChild(text);
-    document.body.replaceChild(display,hold);
-    hold = display;
+    var display_1 = document.createElement('p');
+    display_1.setAttribute('style', 'background-color:#3182bd;');
+    var text_1 = document.createTextNode("Bernie: " + d[inputDrop_d.value][0]);
+    display_1.appendChild(text_1);
+    document.body.appendChild(display_1);
+    var display_2 = document.createElement('p');
+    display_2.setAttribute('style', 'background-color:#6baed6;');
+    var text_2 = document.createTextNode("Clinton: " + d[inputDrop_d.value][1]);
+    display_2.appendChild(text_2);
+    var display_3 = document.createElement('p');
+    display_3.setAttribute('style', 'background-color:#6baed6;text-align: center ');
+    var text_3 = document.createTextNode("");
+    display_3.appendChild(text_3);
+    document.body.replaceChild(display_1,hold_1);
+    document.body.replaceChild(display_2,hold_2);
+    document.body.replaceChild(display_3,hold_3);
+    hold_1 = display_1;
+    hold_2 = display_2;
+    hold_3 = display_3;
     data = [ d[inputDrop_d.value][0]/(d[inputDrop_d.value][0] + d[inputDrop_d.value][1]), d[inputDrop_d.value][1]/( d[inputDrop_d.value][0] + d[inputDrop_d.value][1])];
     render("d");
 });
 
 inputDrop_r.addEventListener('change', function(){
+
+        
+    var display_1 = document.createElement('p');
+    display_1.setAttribute('style', 'background-color:#843c39;');
+    var text_1 = document.createTextNode("Trump: " + r[inputDrop_r.value][0]);
+    display_1.appendChild(text_1);
+    document.body.appendChild(display_1);
+    var display_2 = document.createElement('p');
+    display_2.setAttribute('style', 'background-color:#ad494a;');
+    var text_2 = document.createTextNode("Ted: " + r[inputDrop_r.value][1]);
+    display_2.appendChild(text_2);
+    var display_3 = document.createElement('p');
+    display_3.setAttribute('style', 'background-color:#d6616b');
+    var text_3 = document.createTextNode("John:  " + r[inputDrop_r.value][2]);
+    display_3.appendChild(text_3);
+    document.body.replaceChild(display_1,hold_1);
+    document.body.replaceChild(display_2,hold_2);
+    document.body.replaceChild(display_3,hold_3);
+    hold_1 = display_1;
+    hold_2 = display_2;
+    hold_3 = display_3;
     
-    var display = document.createElement('p');
-    var text = document.createTextNode("Trump: " + r[inputDrop_r.value][0] + " Ted: " + r[inputDrop_r.value][1] + " John: " + r[inputDrop_r.value][2]);
-    display.appendChild(text);
-    document.body.replaceChild(display,hold);
-    hold = display;
     data = [ r[inputDrop_r.value][0]/(r[inputDrop_r.value][0] + r[inputDrop_r.value][1] + r[inputDrop_r.value][2]), r[inputDrop_r.value][1]/(r[inputDrop_r.value][1] + r[inputDrop_r.value][1] + r[inputDrop_r.value][2]), r[inputDrop_r.value][2]/(r[inputDrop_r.value][0] + r[inputDrop_r.value][1] + r[inputDrop_r.value][2])];
     render("r");
 });
 
-var width = 960;
-var height = 500;
+var width = screen.width/2;
+var height = screen.height/2;
 
 var color = d3.scale.category20c().domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
 var svg;
